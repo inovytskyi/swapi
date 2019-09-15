@@ -1,14 +1,14 @@
 import pytest
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def all_people():
     from swapi import SWAPI
     api = SWAPI()
     return api.get_people()
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def all_people_stored():
     import json
     with open('tests/people.json', 'r') as f:
@@ -16,7 +16,7 @@ def all_people_stored():
     return data
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def people_pages():
     from swapi import SWAPI
     api = SWAPI()
@@ -27,7 +27,7 @@ def people_pages():
     return page1, page2, page3, page9
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def three_persons():
     from swapi import SWAPI
     api = SWAPI()
