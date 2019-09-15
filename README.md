@@ -14,3 +14,7 @@
 ```
     python -m pytest -v --color=yes tests/
 ```
+5. (optional) Execute main.py to demonstrate how to timeit decorator works.
+```
+    python main.py
+```
