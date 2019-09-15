@@ -9,11 +9,36 @@ def all_people():
 
 
 @pytest.fixture(scope='session')
+def all_films():
+    from swapi import SWAPI
+    api = SWAPI()
+    return api.get_films()
+
+
+@pytest.fixture(scope='session')
 def all_people_stored():
     import json
     with open('tests/people.json', 'r') as f:
         data = json.load(f)
     return data
+
+
+@pytest.fixture(scope='session')
+def all_films_stored():
+    import json
+    with open('tests/films.json', 'r') as f:
+        data = json.load(f)
+    return data
+
+
+@pytest.fixture(scope='session')
+def three_films():
+    from swapi import SWAPI
+    api = SWAPI()
+    film0 = api.get_film(1)
+    film1 = api.get_film(2)
+    film_none = api.get_film(89)
+    return film0, film1, film_none
 
 
 @pytest.fixture(scope='session')
