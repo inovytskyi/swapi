@@ -1,5 +1,4 @@
-import json
-class Entity(object):
+class Entity:
 
     def __init__(self, dict_data, entity_type):
         for key, value in dict_data.items():
